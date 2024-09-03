@@ -9,6 +9,7 @@ const dbConfig: ConfigType[] = [
     db_name: EnvConfig.POSTGRES_DB_NAME,
     user: EnvConfig.POSTGRES_DB_USER,
     password: EnvConfig.POSTGRES_DB_PASSWORD,
+    port: EnvConfig.POSTGRES_DB_PORT,
     type: "postgres",
   },
   {
@@ -16,6 +17,7 @@ const dbConfig: ConfigType[] = [
     db_name: EnvConfig.MYSQL_DB_NAME,
     user: EnvConfig.MYSQL_DB_USER,
     password: EnvConfig.MYSQL_DB_PASSWORD,
+    port: EnvConfig.MYSQL_DB_PORT,
     type: "mysql",
   },
   // add multiple databases here

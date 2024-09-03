@@ -17,12 +17,15 @@ class EnvConfig {
   public static POSTGRES_DB_USER = process.env.POSTGRES_DB_USER as string;
   public static POSTGRES_DB_PASSWORD = process.env
     .POSTGRES_DB_PASSWORD as string;
-
+  public static POSTGRES_DB_PORT = parseInt(
+    process.env.POSTGRES_DB_PORT as string
+  );
   //  MYSQL DATABASE CONFIGURATION
   public static MYSQL_DB_HOST = process.env.MYSQL_DB_HOST as string;
   public static MYSQL_DB_NAME = process.env.MYSQL_DB_NAME as string;
   public static MYSQL_DB_USER = process.env.MYSQL_DB_USER as string;
   public static MYSQL_DB_PASSWORD = process.env.MYSQL_DB_PASSWORD as string;
+  public static MYSQL_DB_PORT = parseInt(process.env.MYSQL_DB_PORT as string);
 
   // DISCORD CONFIGURATION
   public static BACKUP_NOTIFICATION = process.env.BACKUP_NOTIFICATION as string;

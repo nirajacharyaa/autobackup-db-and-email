@@ -38,7 +38,15 @@ const handleMysqlDump = (data: ConfigType, dumps: DumpType[]) => {
   const dbNames = data.db_name?.includes(",")
     ? data.db_name!.split(",")
     : [data.db_name!];
-  const args = ["-h", data.host!, "-u", data.user!, "--databases", ...dbNames];
+  const args = [
+    "-h",
+    data.host!,
+    ...(data.port ? ["-P", data.port.toString()] : []),
+    "-u",
+    data.user!,
+    "--databases",
+    ...dbNames,
+  ];
   // eslint-disable-next-line no-undef
   const env = { ...process.env, MYSQL_PWD: data.password };
 
@@ -56,7 +64,15 @@ const handlePostgresDump = (data: ConfigType, dumps: DumpType[]) => {
     : [data.db_name!];
 
   dbNames.forEach((dbName) => {
-    const args = ["-h", data.host!, "-U", data.user!, "-d", dbName];
+    const args = [
+      "-h",
+      data.host!,
+      ...(data.port ? ["-p", data.port.toString()] : []),
+      "-U",
+      data.user!,
+      "-d",
+      dbName,
+    ];
     // eslint-disable-next-line no-undef
     const env = { ...process.env, PGPASSWORD: data.password };
 
